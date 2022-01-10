@@ -1,0 +1,37 @@
+body {
+  background-color: #333;
+  color: whitesmoke;
+}
+
+/* TO DO: change the color scheme to match the planet */
+
+a {
+  color: lightblue;
+}
+
+h1 {
+  font-size: 60px;
+  color: darkkhaki;
+}
+
+.intro {
+  font-size: 24px;
+}
+
+#earth h1 {
+  color: #329c4f;
+}
+
+/* My h1 changed color here because I am more specific: #earth h1 is more specific than h1 */
+
+#earth h2 {
+  color: #329c4f;
+}
+
+#mars h1 {
+  color: #e4563a;
+}
+
+#mars h2 {
+  color: #e4563a;
+}
