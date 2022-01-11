@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+}
+
+header {
+  background: black;
+  color: aquamarine;
+  text-align: center;
+  padding: 25px 0;
+  margin: 0 0 25px 0;
+}
+
+main {
+  background:aquamarine;
+  width: 600px;
+  padding: 25px;
+  border: solid black 5px;
+  /* Mai jos este varianta cea mai usoara de a centra un element in pagina - atentie: nu o sa functioneze daca avem width de 100%, trebuie sa fie, ca in cazul nostru sub 100% din latimea ecranului */
+  margin: 0 auto;
+}
+
+footer {
+  background: black;
+  color: aquamarine;
+  text-align: center;
+  padding: 25px 0;
+  margin: 25px 0 0 0;
+}

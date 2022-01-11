@@ -7,7 +7,14 @@ header {
   background: white;
   color: #333;
   width: 100px;
-  margin: 10px 20px 100px 40px;
+  margin: 10px 20px;
+  /* margin genereaza spatiu gol */
+  padding: 20px;
+  /* padding genereaza mai mult background (atunci cand exista background) */
+
+  border: red 20px solid;
+  /* la border, ordinea in care punem valorile nu conteaza, spre deosebire de margin si padding */
+  border-bottom-color: yellow;
 }
 
 main {
@@ -18,4 +25,7 @@ main {
   /* E de preferat sa nu setam inaltimea unui element, ca acesta sa poata creste in functie de continutul lui */
   margin-top: 50px;
   margin-left: 35px;
+
+  border-left: 10px solid yellow;
+  padding: 0 0 0 30px;
 } 
