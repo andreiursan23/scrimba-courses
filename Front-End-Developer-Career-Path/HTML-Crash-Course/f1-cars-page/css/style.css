@@ -63,6 +63,7 @@ a:focus {
 
 .col {
   margin: 0 1em;
+  text-align: center;
 }
 
 .btn {
@@ -108,5 +109,5 @@ section {
 }
 
 .extra-space {
-  margin-top: 10rem;
+  margin-top: 5rem;
 }
