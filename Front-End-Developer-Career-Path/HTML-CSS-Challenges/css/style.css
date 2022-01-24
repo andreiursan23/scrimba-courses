@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.title {
+  font-size: 72px;
+  color: #fff;
+  background: #281b2d;
+  margin-top: 0;
+  text-align: center;
+  padding: 25px 0;
+}
+
+.sub-title {
+  font-size: 48px;
+  color: #fcd801;
+  background: #281b2d;
+  border-bottom: solid 5px #00c54c;
+  padding: 20px;
+  margin: 0 0 20px 0;
+}
+
+.white-text {
+  color: #fff;
+}
+
+.columns {
+  display: flex;
+}
+
+.main-content {
+  margin: 0 20px;
+}
+
+.sidebar {
+  min-width: 30%;
+  margin: 0 20px;
+  background: #9ae84f;
+  padding: 20px;
+  box-shadow: 1px 1px 15px 4px rgba(20, 20, 20, 0.4);
+}
+
+.col {
+  margin: 0 0 0 25px;
+}
+
+.lizard-species li {
+  margin: 0 0 10px 0;
+}
+
+.source {
+  font-size: 12px;
+}
+
+.source-link {
+  color: #9138b7;
+}
+
+.source-link:hover {
+  color: #fefefe;
+}
