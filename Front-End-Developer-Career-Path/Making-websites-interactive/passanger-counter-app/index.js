@@ -36,19 +36,22 @@ let count = 0;
 let countEl = document.getElementById("count-el");
 
 function increment() {
-  count = count + 1;
-  countEl.innerText = count;
+  count += 1;
+  // textContent is more performant than innerText, so it should be used instead of it
+  // countEl.innerText = count;
+
+  countEl.textContent = count;
 }
 
 let prevEntriesEl = document.getElementById("prev-entries");
 
 function save() {
-  if (prevEntriesEl.innerText === "Previous entries:") {
-    prevEntriesEl.innerText += ` ${count}`;
+  if (prevEntriesEl.textContent === "Previous entries: ") {
+    prevEntriesEl.textContent += ` ${count}`;
   } else {
-    prevEntriesEl.innerText += ` - ${count}`;
+    prevEntriesEl.textContent += ` - ${count}`;
   }
 
   count = 0;
-  countEl.innerText = count;
+  countEl.textContent = count;
 }
