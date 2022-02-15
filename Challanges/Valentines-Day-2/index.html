@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Valentine's Challenge Week 💘</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karla:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+
+  <body>
+    <div class="card" id="card">
+      <p id="greeting-display">Greeting will go here</p>
+    </div>
+
+    <form id="form">
+      <label for="recipient-input">To:</label>
+      <input type="text" id="recipient-input" name="recipient-input" />
+      <br />
+      <label for="greeting-select">Select greeting:</label>
+      <select id="greeting-select">
+        <option value="">--Select greeting--</option>
+        <option value="I choo choo choose you! 🚂">
+          I choo choo choose you! 🚂
+        </option>
+        <option value="You are my sunshine! 🌞">You are my sunshine! 🌞</option>
+        <option value="Happy Valentine's! 💘">Happy Valentine's! 💘</option>
+      </select>
+      <br />
+      <label for="sender-input" id="sender-label" class="hide">From:</label>
+      <input type="text" id="sender-input" name="sender-input" class="hide" />
+      <br />
+      <label for="new-greeting">Custom greeting:</label>
+      <div class="custom-greeting-box">
+        <input type="text" id="new-greeting" name="new-greeting" />
+        <button type="button" id="add-greeting">Add</button>
+      </div>
+    </form>
+    <script src="index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+:root {
+  --teal: #398557;
+  --orange: #f5b957;
+  --gray: #b7bbbd;
+
+  --bg: var(--teal);
+  --text: var(--orange);
+  --box-border: var(--gray);
+
+  --main-font: "Roboto";
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: var(--bg);
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--main-font), sans-serif;
+}
+
+.main-container {
+  height: 500px;
+  width: 375px;
+  border: var(--box-border) 3px solid;
+  border-radius: 20px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--text);
+}
