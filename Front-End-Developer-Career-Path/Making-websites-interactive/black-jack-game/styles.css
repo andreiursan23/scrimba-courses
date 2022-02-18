@@ -2,10 +2,15 @@
   --teal: #398557;
   --orange: #f5b957;
   --gray: #b7bbbd;
+  --white: #f7f7f8;
 
   --bg: var(--teal);
   --text: var(--orange);
+  --btn: var(--orange);
+  --btn-text: var(--teal);
+  --btn-disabled: var(--gray);
   --box-border: var(--gray);
+  --subtitle: var(--white);
 
   --main-font: "Roboto";
 }
@@ -17,7 +22,7 @@
 html,
 body {
   background: var(--bg);
-  font-size: 18px;
+  font-size: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,14 +30,90 @@ body {
 }
 
 .main-container {
-  height: 500px;
   width: 375px;
   border: var(--box-border) 3px solid;
   border-radius: 20px;
+  letter-spacing: 0.0625rem;
 }
 
 .title {
-  font-size: 2.5rem;
+  font-size: 2.815rem;
   font-weight: bold;
   color: var(--text);
+  text-align: center;
+  padding: 1.6875rem 0 1rem 0;
+  border-bottom: var(--box-border) 3px solid;
+}
+
+.subtitle {
+  font-size: 1.6875rem;
+  text-align: center;
+  padding: 1rem 0;
+  color: var(--subtitle);
+  border-bottom: var(--box-border) 3px solid;
+}
+
+.cards {
+  font-size: 1.6875rem;
+  text-align: center;
+  padding: 1rem 0 0 0;
+  color: var(--subtitle);
+}
+
+.cards-values {
+  height: 3.6875rem;
+  font-size: 1.6875rem;
+  text-align: center;
+  padding: 1rem 0;
+  color: var(--text);
+}
+
+.button {
+  display: block;
+  width: 70%;
+  margin: 0.75rem auto;
+  text-transform: uppercase;
+  padding: 0.5rem 0;
+  font-size: 1.125rem;
+  border: none;
+  color: var(--btn-text);
+  background: var(--btn);
+  font-weight: bold;
+}
+
+.button:hover {
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
+.button:disabled {
+  background: var(--btn-disabled);
+  opacity: 0.7;
+}
+
+.button:disabled.button:hover {
+  transform: none;
+  cursor: not-allowed;
+}
+
+.player-container,
+.dealers-container {
+  display: flex;
+  border-bottom: var(--box-border) 3px solid;
+}
+
+.cards-container {
+  width: 70%;
+  border-right: var(--box-border) 3px solid;
+}
+
+.sum-container {
+  width: 30%;
+}
+
+.game-status {
+  color: var(--text);
+  font-weight: 500;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }

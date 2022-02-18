@@ -17,6 +17,33 @@
   <body>
     <main class="main-container">
       <h1 class="title">Blackjack</h1>
+      <div class="dealers-container">
+        <div class="cards-container">
+          <p class="cards">Dealer's Cards:</p>
+          <p class="cards-values" id="dealers-cards-values"></p>
+        </div>
+        <div class="sum-container">
+          <p class="cards">Sum:</p>
+          <p class="cards-values" id="dealers-cards-sum"></p>
+        </div>
+      </div>
+
+      <p class="subtitle game-status" id="game-status">Want to play a round?</p>
+
+      <div class="player-container">
+        <div class="cards-container">
+          <p class="cards">My Cards:</p>
+          <p class="cards-values" id="player-cards-values"></p>
+        </div>
+        <div class="sum-container">
+          <p class="cards">Sum:</p>
+          <p class="cards-values" id="player-cards-sum"></p>
+        </div>
+      </div>
+
+      <button class="button" id="start-game">Start Game</button>
+      <button class="button" id="new-card" disabled>New Card</button>
+      <button class="button" id="stand" disabled>STAND</button>
     </main>
 
     <script src="./index.js"></script>
