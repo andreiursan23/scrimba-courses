@@ -50,7 +50,7 @@ body {
   text-align: center;
   padding: 1rem 0;
   color: var(--subtitle);
-  border-bottom: var(--box-border) 3px solid;
+  
 }
 
 .cards {
@@ -116,4 +116,12 @@ body {
   font-weight: 500;
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+.game-message {
+  min-height: 5.5625rem;
+  border-bottom: var(--box-border) 3px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

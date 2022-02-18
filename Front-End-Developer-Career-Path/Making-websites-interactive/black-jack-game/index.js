@@ -42,6 +42,7 @@ let gameStage = 1;
 
 startGameBtn.addEventListener("click", startGame);
 newCardBtn.addEventListener("click", getNewCard);
+standBtn.addEventListener("click", standRound);
 
 function generateRandomCard(side) {
   const cardNumber = Math.floor(Math.random() * 13) + 1;
@@ -74,17 +75,39 @@ function changeAceValue(cards, side) {
   }
 }
 
-function renderGame(cards, cardsElem, sumElem, side) {
+function updateCardsSum(side, sum) {
+  if (side === "player") {
+    playersSum = sum;
+  } else {
+    dealersSum = sum;
+  }
+}
+
+function calcCardsSum(cards) {
   let sum = 0;
-  cardsElem.textContent = "";
 
   cards.forEach((card) => {
     sum += card;
   });
 
+  return sum;
+}
+
+function renderGame(cards, cardsElem, sumElem, side) {
+  let sum = 0;
+  cardsElem.textContent = "";
+
+  // Sum calculated before Ace adjustment
+  sum = calcCardsSum(cards);
+
   if (sum > 21) {
     changeAceValue(cards, side);
   }
+
+  //Sum calculated after Ace adjustment
+  sum = calcCardsSum(cards);
+
+  updateCardsSum(side, sum);
 
   cards.forEach((card) => {
     cardsElem.textContent += `${card} `;
@@ -92,15 +115,18 @@ function renderGame(cards, cardsElem, sumElem, side) {
   });
 }
 
-function renderDealerFirstRound() {
+function renderDealerFirstRound(cards) {
   dealersCardsValuesEl.textContent = dealersCards[1];
   dealersCardsSumEl.textContent = dealersCards[1];
+
+  let sum = calcCardsSum(cards);
+
+  updateCardsSum("dealer", sum);
 }
 
 function dealerGame() {
   if (dealersSum < 17) {
     dealersCards.push(generateRandomCard("dealer"));
-    renderGame(dealersCards, dealersCardsValuesEl, dealersCardsSumEl, "dealer");
   }
 }
 
@@ -112,7 +138,7 @@ function evaluateGameState(sideCardsSum) {
   }
 }
 
-function evaluateGameWon(sideCardsSum) {
+function evaluateGameBlackjack(sideCardsSum) {
   if (sideCardsSum === 21) {
     return true;
   } else {
@@ -120,29 +146,85 @@ function evaluateGameWon(sideCardsSum) {
   }
 }
 
+function evaluateGameWon() {
+  if (playersSum > dealersSum) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function updateGameMessage(message) {
+  gameStatusEl.textContent = `${message}`;
+}
+
 function startGame() {
   dealersCards = [generateRandomCard("dealer"), generateRandomCard("dealer")];
   playerCards = [generateRandomCard("player"), generateRandomCard("player")];
 
   renderGame(playerCards, playerCardsValuesEl, playerCardsSumEl, "player");
-  renderDealerFirstRound();
+  renderDealerFirstRound(dealersCards);
 
   startGameBtn.disabled = true;
   newCardBtn.disabled = false;
   standBtn.disabled = false;
 
-  gameStatusEl.textContent = "Draw a new card? Or stand down?";
+  hasDealerWon = evaluateGameBlackjack(dealersSum);
+  hasPlayerWon = evaluateGameBlackjack(playersSum);
 
-  console.log(hasDealerAce);
-  console.log(hasPlayerAce);
+  if (hasPlayerWon && hasDealerWon) {
+    updateGameMessage("Both sides have Blackjack! It's a tie. 😲");
+    renderGame(dealersCards, dealersCardsValuesEl, dealersCardsSumEl, "dealer");
+
+    startGameBtn.disabled = false;
+    newCardBtn.disabled = true;
+    standBtn.disabled = true;
+  } else if (hasPlayerWon) {
+    updateGameMessage("Blackjack! You won this round! 🥇");
+    renderGame(dealersCards, dealersCardsValuesEl, dealersCardsSumEl, "dealer");
+
+    startGameBtn.disabled = false;
+    newCardBtn.disabled = true;
+    standBtn.disabled = true;
+  } else {
+    updateGameMessage("Draw a new card? Or stand down? 🤔");
+  }
 }
 
 function getNewCard() {
   playerCards.push(generateRandomCard("player"));
   renderGame(playerCards, playerCardsValuesEl, playerCardsSumEl, "player");
 
-  hasPlayerWon = evaluateGameWon(playersSum);
+  isPlayerAlive = evaluateGameState(playersSum);
 
-  console.log(hasDealerAce);
-  console.log(hasPlayerAce);
+  if (!isPlayerAlive) {
+    updateGameMessage("You lost this round! 😢");
+    renderGame(dealersCards, dealersCardsValuesEl, dealersCardsSumEl, "dealer");
+
+    startGameBtn.disabled = false;
+    newCardBtn.disabled = true;
+    standBtn.disabled = true;
+  }
+}
+
+function standRound() {
+  dealerGame();
+
+  hasPlayerWon = evaluateGameWon();
+
+  if (hasPlayerWon) {
+    updateGameMessage("You won this round! 🥇");
+    renderGame(dealersCards, dealersCardsValuesEl, dealersCardsSumEl, "dealer");
+
+    startGameBtn.disabled = false;
+    newCardBtn.disabled = true;
+    standBtn.disabled = true;
+  } else {
+    updateGameMessage("You lost this round! 😢");
+    renderGame(dealersCards, dealersCardsValuesEl, dealersCardsSumEl, "dealer");
+
+    startGameBtn.disabled = false;
+    newCardBtn.disabled = true;
+    standBtn.disabled = true;
+  }
 }
