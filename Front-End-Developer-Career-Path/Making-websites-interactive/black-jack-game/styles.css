@@ -3,14 +3,23 @@
   --orange: #f5b957;
   --gray: #b7bbbd;
   --white: #f7f7f8;
+  --black: #36393a;
 
   --bg: var(--teal);
   --text: var(--orange);
   --btn: var(--orange);
+  --btn-clicked: var(--orange);
   --btn-text: var(--teal);
   --btn-disabled: var(--gray);
   --box-border: var(--gray);
   --subtitle: var(--white);
+  --btn-bet-text: var(--white);
+
+  --btn-1usd: #36393a;
+  --btn-5usd: #bf223c;
+  --btn-20usd: #276d9b;
+  --btn-50usd: #e06d10;
+  --btn-100usd: #502b5a;
 
   --main-font: "Roboto";
 }
@@ -45,12 +54,16 @@ body {
   border-bottom: var(--box-border) 3px solid;
 }
 
+.black {
+  color: var(--black);
+  font-size: 2.5rem;
+}
+
 .subtitle {
   font-size: 1.6875rem;
   text-align: center;
   padding: 1rem 0;
   color: var(--subtitle);
-  
 }
 
 .cards {
@@ -124,4 +137,63 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.bet-container {
+  height: 5.3125rem;
+}
+
+.total-money-container {
+  width: 50%;
+  border-right: var(--box-border) 3px solid;
+}
+
+.stake-container {
+  width: 50%;
+}
+
+.bet-button {
+  display: block;
+  width: 15%;
+  margin: 0.75rem auto;
+  text-transform: uppercase;
+  padding: 0.5rem 0;
+  font-size: 1.125rem;
+  border: none;
+  color: var(--btn-bet-text);
+  font-weight: bold;
+}
+
+.usd1 {
+  background: var(--btn-1usd);
+}
+
+.usd5 {
+  background: var(--btn-5usd);
+}
+
+.usd20 {
+  background: var(--btn-20usd);
+}
+
+.usd50 {
+  background: var(--btn-50usd);
+}
+
+.usd100 {
+  background: var(--btn-100usd);
+}
+
+.bet-button:hover {
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
+.bet-button:disabled {
+  background: var(--btn-disabled);
+  opacity: 0.7;
+}
+
+.bet-button.selected {
+  border: 2px solid var(--btn-clicked);
 }

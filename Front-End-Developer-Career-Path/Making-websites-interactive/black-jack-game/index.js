@@ -20,6 +20,7 @@ let hasPlayerWon = false;
 let hasDealerWon = false;
 let hasPlayerAce = false;
 let hasDealerAce = false;
+let isRoundDraw = false;
 
 startGameBtn.addEventListener("click", startGame);
 newCardBtn.addEventListener("click", getNewCard);
@@ -132,7 +133,9 @@ function evaluateGameBlackjack(sideCardsSum) {
 }
 
 function evaluateGameWon() {
-  if (playersSum > dealersSum) {
+  if (playersSum === dealersSum) {
+    return "draw";
+  } else if (playersSum > dealersSum) {
     return true;
   } else {
     return false;
@@ -193,15 +196,27 @@ function getNewCard() {
 
 function standRound() {
   dealerGame();
+  isDealerAlive = evaluateGameState(dealersSum);
 
-  hasPlayerWon = evaluateGameWon();
+  if (isDealerAlive) {
+    hasPlayerWon = evaluateGameWon();
 
-  if (hasPlayerWon) {
-    updateGameMessage("You won this round! 🥇");
+    if (hasPlayerWon === "draw") {
+      updateGameMessage("It's a draw! 🤝");
+      isRoundDraw = true;
 
-    endGameSteps();
+      endGameSteps();
+    } else if (hasPlayerWon) {
+      updateGameMessage("You won this round! 🥇");
+
+      endGameSteps();
+    } else {
+      updateGameMessage("You lost this round! 😢");
+
+      endGameSteps();
+    }
   } else {
-    updateGameMessage("You lost this round! 😢");
+    updateGameMessage("You won this round! 🥇");
 
     endGameSteps();
   }
