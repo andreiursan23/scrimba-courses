@@ -30,7 +30,7 @@
 
       <div class="game-message">
         <p class="subtitle game-status" id="game-status">
-          Want to play a round? 🖤
+          Want to play a round? <span class="black">♠</span> Place your bet and start game
         </p>
       </div>
 
@@ -42,6 +42,25 @@
         <div class="sum-container">
           <p class="cards">Sum:</p>
           <p class="cards-values" id="player-cards-sum"></p>
+        </div>
+      </div>
+
+      <div class="player-container bet-container">
+        <button class="bet-button usd1" id="bet-1">Bet $1</button>
+        <button class="bet-button usd5" id="bet-5">Bet $5</button>
+        <button class="bet-button usd20" id="bet-20">Bet $20</button>
+        <button class="bet-button usd50 selected" id="bet-50">Bet $50</button>
+        <button class="bet-button usd100" id="bet-100">Bet $100</button>
+      </div>
+
+      <div class="player-container">
+        <div class="total-money-container">
+          <p class="cards">Your Total Money:</p>
+          <p class="cards-values" id="player-total-money"></p>
+        </div>
+        <div class="stake-container">
+          <p class="cards">Money at stake:</p>
+          <p class="cards-values" id="player-current-stake"></p>
         </div>
       </div>
 
