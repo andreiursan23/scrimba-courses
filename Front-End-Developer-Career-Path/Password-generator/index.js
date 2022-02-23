@@ -3,6 +3,10 @@ const pass2El = document.getElementById("pass2");
 const pass3El = document.getElementById("pass3");
 const pass4El = document.getElementById("pass4");
 
+const generatePasswordsBtn = document.getElementById("generate-passwords");
+
+generatePasswordsBtn.addEventListener("click", generatePasswords());
+
 const getAllCharacters = () => {
   const range = (start, stop, step) =>
     Array.from(
