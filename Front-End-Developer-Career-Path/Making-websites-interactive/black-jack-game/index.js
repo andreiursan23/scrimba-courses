@@ -10,6 +10,16 @@ const startGameBtn = document.getElementById("start-game");
 const newCardBtn = document.getElementById("new-card");
 const standBtn = document.getElementById("stand");
 
+const playerTotalMoneyEl = document.getElementById("player-total-money");
+const playerCurrentStakeEl = document.getElementById("player-current-stake");
+
+const bet1El = document.getElementById("bet-1");
+const bet5El = document.getElementById("bet-5");
+const bet20El = document.getElementById("bet-20");
+const bet50El = document.getElementById("bet-50");
+const bet100El = document.getElementById("bet-100");
+const allBettingBtns = document.querySelectorAll(".bet-button");
+
 let dealersCards = [];
 let playerCards = [];
 let dealersSum = 0;
@@ -21,10 +31,20 @@ let hasDealerWon = false;
 let hasPlayerAce = false;
 let hasDealerAce = false;
 let isRoundDraw = false;
+let playerChips = 1000;
+let currentStake = undefined;
 
 startGameBtn.addEventListener("click", startGame);
 newCardBtn.addEventListener("click", getNewCard);
 standBtn.addEventListener("click", standRound);
+
+bet1El.addEventListener("click", bet1);
+bet5El.addEventListener("click", bet5);
+bet20El.addEventListener("click", bet20);
+bet50El.addEventListener("click", bet50);
+bet100El.addEventListener("click", bet100);
+
+renderPlayerTotalMoney();
 
 function generateRandomCard(side) {
   const cardNumber = Math.floor(Math.random() * 13) + 1;
@@ -86,7 +106,7 @@ function renderGame(cards, cardsElem, sumElem, side) {
     changeAceValue(cards, side);
   }
 
-  //Sum calculated after Ace adjustment
+  // Sum calculated after Ace adjustment
   sum = calcCardsSum(cards);
 
   updateCardsSum(side, sum);
@@ -111,9 +131,17 @@ function dealerGame() {
     dealersCards.push(generateRandomCard("dealer"));
   }
 
-  let sum = calcCardsSum(dealersCards);
+  // Sum calculated before Ace adjustment
+  dealersSum = calcCardsSum(dealersCards);
 
-  updateCardsSum("dealer", sum);
+  if (dealersSum > 21) {
+    changeAceValue(dealersCards, "dealer");
+  }
+
+  // Sum calculated after Ace adjustment
+  dealersSum = calcCardsSum(dealersCards);
+
+  updateCardsSum("dealer", dealersSum);
 }
 
 function evaluateGameState(sideCardsSum) {
@@ -149,9 +177,129 @@ function updateGameMessage(message) {
 function endGameSteps() {
   renderGame(dealersCards, dealersCardsValuesEl, dealersCardsSumEl, "dealer");
 
-  startGameBtn.disabled = false;
+  establishPrizeWinner();
+  renderPlayerTotalMoney();
+
+  startGameBtn.disabled = true;
   newCardBtn.disabled = true;
   standBtn.disabled = true;
+
+  bet1El.disabled = false;
+  bet5El.disabled = false;
+  bet20El.disabled = false;
+  bet50El.disabled = false;
+  bet100El.disabled = false;
+
+  allBettingBtns.forEach((btn) => {
+    btn.classList.remove("selected");
+  });
+
+  playerCurrentStakeEl.textContent = "";
+  playerCurrentStakeEl.textContent = "Place new bet";
+}
+
+function enableStartGameBtn() {
+  startGameBtn.disabled = false;
+
+  playerCurrentStakeEl.textContent = `$${currentStake}`;
+}
+
+function changePlayerTotalMoney(stake) {
+  playerChips = playerChips - stake;
+}
+
+function renderPlayerTotalMoney() {
+  playerTotalMoneyEl.textContent = `$${playerChips}`;
+}
+
+function bet1() {
+  currentStake = 1;
+
+  changePlayerTotalMoney(1);
+  renderPlayerTotalMoney();
+
+  bet1El.classList.add("selected");
+
+  bet5El.setAttribute("disabled", true);
+  bet20El.setAttribute("disabled", true);
+  bet50El.setAttribute("disabled", true);
+  bet100El.setAttribute("disabled", true);
+
+  enableStartGameBtn();
+}
+
+function bet5() {
+  currentStake = 5;
+
+  changePlayerTotalMoney(5);
+  renderPlayerTotalMoney();
+
+  bet5El.classList.add("selected");
+
+  bet1El.setAttribute("disabled", true);
+  bet20El.setAttribute("disabled", true);
+  bet50El.setAttribute("disabled", true);
+  bet100El.setAttribute("disabled", true);
+
+  enableStartGameBtn();
+}
+
+function bet20() {
+  currentStake = 20;
+
+  changePlayerTotalMoney(20);
+  renderPlayerTotalMoney();
+
+  bet20El.classList.add("selected");
+
+  bet1El.setAttribute("disabled", true);
+  bet5El.setAttribute("disabled", true);
+  bet50El.setAttribute("disabled", true);
+  bet100El.setAttribute("disabled", true);
+
+  enableStartGameBtn();
+}
+
+function bet50() {
+  currentStake = 50;
+
+  changePlayerTotalMoney(50);
+  renderPlayerTotalMoney();
+
+  bet50El.classList.add("selected");
+
+  bet1El.setAttribute("disabled", true);
+  bet5El.setAttribute("disabled", true);
+  bet20El.setAttribute("disabled", true);
+  bet100El.setAttribute("disabled", true);
+
+  enableStartGameBtn();
+}
+
+function bet100() {
+  currentStake = 100;
+
+  changePlayerTotalMoney(100);
+  renderPlayerTotalMoney();
+
+  bet100El.classList.add("selected");
+
+  bet1El.setAttribute("disabled", true);
+  bet5El.setAttribute("disabled", true);
+  bet20El.setAttribute("disabled", true);
+  bet50El.setAttribute("disabled", true);
+
+  enableStartGameBtn();
+}
+
+function establishPrizeWinner() {
+  if (isRoundDraw) {
+    playerChips = playerChips + currentStake;
+  } else if (hasPlayerWon) {
+    playerChips = playerChips + 2 * currentStake;
+  } else {
+    playerChips = playerChips;
+  }
 }
 
 function startGame() {
@@ -170,6 +318,7 @@ function startGame() {
 
   if (hasPlayerWon && hasDealerWon) {
     updateGameMessage("Both sides have Blackjack! It's a tie. 😲");
+    isRoundDraw = true;
 
     endGameSteps();
   } else if (hasPlayerWon) {
@@ -179,6 +328,8 @@ function startGame() {
   } else {
     updateGameMessage("Draw a new card? Or stand down? 🤔");
   }
+
+  isRoundDraw = false;
 }
 
 function getNewCard() {
@@ -187,8 +338,16 @@ function getNewCard() {
 
   isPlayerAlive = evaluateGameState(playersSum);
 
+  if (playersSum === 21) {
+    updateGameMessage("Blackjack! You won this round! 🥇");
+    hasPlayerWon = true;
+
+    endGameSteps();
+  }
+
   if (!isPlayerAlive) {
     updateGameMessage("You lost this round! 😢");
+    hasPlayerWon = false;
 
     endGameSteps();
   }
@@ -208,16 +367,21 @@ function standRound() {
       endGameSteps();
     } else if (hasPlayerWon) {
       updateGameMessage("You won this round! 🥇");
+      hasPlayerWon = true;
 
       endGameSteps();
     } else {
       updateGameMessage("You lost this round! 😢");
+      hasPlayerWon = false;
 
       endGameSteps();
     }
   } else {
     updateGameMessage("You won this round! 🥇");
+    hasPlayerWon = true;
 
     endGameSteps();
   }
+
+  isRoundDraw = false;
 }

@@ -132,7 +132,7 @@ body {
 }
 
 .game-message {
-  min-height: 5.5625rem;
+  min-height: 8.065rem;
   border-bottom: var(--box-border) 3px solid;
   display: flex;
   justify-content: center;
@@ -144,12 +144,12 @@ body {
 }
 
 .total-money-container {
-  width: 50%;
+  width: 45%;
   border-right: var(--box-border) 3px solid;
 }
 
 .stake-container {
-  width: 50%;
+  width: 55%;
 }
 
 .bet-button {
@@ -185,12 +185,13 @@ body {
 }
 
 .bet-button:hover {
-  transform: scale(1.02);
+  transform: scale(1.04);
   cursor: pointer;
 }
 
 .bet-button:disabled {
   background: var(--btn-disabled);
+  cursor: not-allowed;
   opacity: 0.7;
 }
 
