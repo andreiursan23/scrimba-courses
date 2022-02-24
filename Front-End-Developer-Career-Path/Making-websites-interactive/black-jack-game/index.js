@@ -172,6 +172,11 @@ function evaluateGameWon() {
 
 function updateGameMessage(message) {
   gameStatusEl.textContent = `${message}`;
+  gameStatusEl.classList.add("fade-in");
+
+  setTimeout(() => {
+    gameStatusEl.classList.remove("fade-in");
+  }, 500);
 }
 
 function endGameSteps() {

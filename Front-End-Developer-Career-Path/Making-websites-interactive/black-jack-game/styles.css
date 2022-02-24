@@ -198,3 +198,16 @@ body {
 .bet-button.selected {
   border: 2px solid var(--btn-clicked);
 }
+
+.fade-in {
+  animation: fadein .5s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
