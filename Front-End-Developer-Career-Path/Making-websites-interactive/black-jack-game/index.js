@@ -182,7 +182,7 @@ function updateGameMessage(message) {
 function endGameSteps() {
   renderGame(dealersCards, dealersCardsValuesEl, dealersCardsSumEl, "dealer");
 
-  establishPrizeWinner();
+  updatePlayerChips();
   renderPlayerTotalMoney();
 
   startGameBtn.disabled = true;
@@ -297,7 +297,7 @@ function bet100() {
   enableStartGameBtn();
 }
 
-function establishPrizeWinner() {
+function updatePlayerChips() {
   if (isRoundDraw) {
     playerChips = playerChips + currentStake;
   } else if (hasPlayerWon) {
