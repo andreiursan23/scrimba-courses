@@ -27,19 +27,25 @@ const possibleTasks = [
     name: "Wash Car",
     value: 10,
     removeBtn: "remove-wash-car",
-    el: createTaskEl("Wash Car", 10, "remove-wash-car"),
+    crateEl() {
+      return createTaskEl(this.name, this.value, this.removeBtn);
+    },
   },
   {
     name: "Mow Law",
     value: 20,
     removeBtn: "remove-mow-law",
-    el: createTaskEl("Mow Law", 20, "remove-mow-law"),
+    crateEl() {
+      return createTaskEl(this.name, this.value, this.removeBtn);
+    },
   },
   {
     name: "Pull Weeds",
     value: 30,
     removeBtn: "remove-pull-weeds",
-    el: createTaskEl("Pull Weeds", 30, "remove-pull-weeds"),
+    crateEl() {
+      return createTaskEl(this.name, this.value, this.removeBtn);
+    },
   },
 ];
 
@@ -51,7 +57,7 @@ const render = (tasks, tasksEl, sumEl) => {
   tasksEl.innerHTML = "";
 
   tasks.forEach((task) => {
-    tasksEl.innerHTML += task.el;
+    tasksEl.innerHTML += task.crateEl();
     sum += task.value;
   });
 
