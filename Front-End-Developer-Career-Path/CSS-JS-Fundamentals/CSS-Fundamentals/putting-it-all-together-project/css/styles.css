@@ -1,0 +1,50 @@
+:root {
+  --main-font: "Lato", sans-serif;
+
+  --orange: #ef5839;
+  --dark-blue: #2e354f;
+  --white: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--main-font);
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  background: var(--dark-blue);
+  color: var(--white);
+}
+
+h1,
+h2,
+p,
+img {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+.section-container,
+.title {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.title {
+  padding: 40px 0;
+}
+
+.section-one {
+  background: var(--white);
+}
