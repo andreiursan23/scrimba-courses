@@ -42,9 +42,15 @@ h2 {
 }
 
 .title {
-  padding: 40px 0;
+  padding: 60px 0;
+}
+
+.section-title {
+  color: var(--orange);
 }
 
 .section-one {
   background: var(--white);
+  color: var(--dark-blue);
+  padding: 35px 0;
 }
