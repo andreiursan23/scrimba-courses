@@ -1,0 +1,249 @@
+/* 
+  Fonts needed:
+  - Inter: 800, 400, 500, 700, 600
+
+*/
+
+:root {
+  --font: "Inter";
+
+  --black: #1c1c1c;
+  --darkest-blue: #1f2937;
+  --dark-blue: #4a4e74;
+  --blue: #3a69d2;
+  --darkest-gray: #918e9b;
+  --dark-gray: #c3c6db;
+  --gray: #d1d4f4;
+  --lightest-gray: #d5d4d8;
+  --white: #f5f5f5;
+  --pure-white: #fff;
+
+  --bg: var(--black);
+  --header-bg: var(--blue);
+  --title: var(--pure-white);
+  --main-bg: var(--darkest-blue);
+  --btn-bg: var(--gray);
+  --btn-text: var(--dark-blue);
+  --btn-border: var(--lightest-gray);
+  --btn-border-selected: var(--pure-white);
+  --tasks-title: var(--lightest-gray);
+  --task: var(--white);
+  --task-remove: var(--lightest-gray);
+  --task-remove-hover: var(--pure-white);
+  --currency: var(--darkest-gray);
+  --separator-line: var(--dark-gray);
+  --note-text: var(--white);
+  --total-value: var(--white);
+  --send-btn: var(--blue);
+  --send-btn-text: var(--pure-white);
+
+  font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Container */
+.main-container {
+  font-family: var(--font), sans-serif;
+  background: var(--bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  min-width: 34.375rem;
+  min-height: 44.9375rem;
+  background: var(--main-bg);
+  font-style: normal;
+}
+
+/* Header */
+header {
+  background: var(--header-bg);
+  color: var(--title);
+  text-align: center;
+}
+
+header .title {
+  font-weight: 800;
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  letter-spacing: 0.01em;
+  padding: 3.6875rem 3.6875rem 0.5625rem 3.6875rem;
+}
+
+header .subtitle {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.75rem;
+  padding: 0 3.1875rem 3.1875rem 3.1875rem;
+}
+
+/* Main section */
+
+/* Top buttons */
+.btn-selection {
+  padding: 2.5625rem 0 2.6875rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-selection button {
+  min-height: 2.8125rem;
+  min-width: 8.875rem;
+  background: var(--gray);
+  color: var(--btn-text);
+  border: 1px solid var(--btn-border);
+  border-radius: 0.4375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1rem;
+  cursor: pointer;
+}
+
+.btn-selection button:hover {
+  border: 2px solid var(--btn-border-selected);
+  transform: scale(1.015);
+}
+
+.btn-selection button:active {
+  border: 2px solid var(--btn-border-selected);
+}
+
+.btn-selection button:focus {
+  border: 2px solid var(--btn-border-selected);
+}
+
+/* Task container */
+.selected-tasks-container {
+  padding: 0 2.5rem 3.0625rem 2.5rem;
+}
+
+section .titles {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.1875rem;
+}
+
+.titles h3 {
+  font-weight: 700;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  text-transform: uppercase;
+  color: var(--tasks-title);
+  width: fit-content;
+}
+
+/* Added tasks list */
+.selected-tasks-container ul {
+  border-bottom: 1px solid var(--separator-line);
+  padding-bottom: 0.3125rem;
+}
+
+.selected-tasks-container ul li {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1.5rem;
+}
+
+.task {
+  display: flex;
+}
+
+.task p {
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+  color: var(--task);
+  margin-right: 0.9375rem;
+}
+
+.task button {
+  font-weight: 400;
+  font-size: 0.5rem;
+  line-height: 1.25rem;
+  color: var(--task-remove);
+  border: none;
+  background-color: var(--main-bg);
+  cursor: pointer;
+}
+
+.task button:hover {
+  color: var(--task-remove-hover);
+}
+
+.price {
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.25rem;
+  color: var(--total-value);
+}
+
+.currency {
+  font-weight: 300;
+  color: var(--currency);
+}
+
+/* Summary container */
+.summary {
+  padding-top: 0.6875rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.notes h4,
+.total-price h4 {
+  font-weight: 600;
+  font-size: 0.75rem;
+  line-height: 2rem;
+  text-transform: uppercase;
+  color: var(--tasks-title);
+}
+
+.notes p {
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 0.75rem;
+  color: var(--tasks-title);
+}
+
+.total-price p {
+  font-weight: 600px;
+  font-size: 2.25rem;
+  line-height: 2rem;
+  text-align: right;
+  color: var(--tasks-title);
+}
+
+/* Send invoice button */
+.send-invoice-btn {
+  margin-top: 3.125rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.75rem;
+  background-color: var(--send-btn);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  border: none;
+  border-radius: 0.4375rem;
+  color: var(--send-btn-text);
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  cursor: pointer;
+}
+
+.send-invoice-btn:hover {
+  transform: scale(1.015);
+}
+
+.send-invoice-btn svg {
+  margin-right: 0.875rem;
+  position: relative;
+  bottom: 1px;
+}
