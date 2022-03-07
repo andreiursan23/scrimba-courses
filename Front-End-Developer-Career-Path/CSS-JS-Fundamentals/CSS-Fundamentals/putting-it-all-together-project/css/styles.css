@@ -13,10 +13,18 @@
 body {
   font-family: var(--main-font);
   font-size: 18px;
+  font-weight: 300;
   margin: 0;
   padding: 0;
-  background: var(--dark-blue);
+  color: var(--dark-blue);
+  background-color: var(--white);
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+
+header {
   color: var(--white);
+  background-color: var(--dark-blue);
 }
 
 h1,
@@ -27,6 +35,11 @@ img {
   padding: 0;
 }
 
+h1,
+h2 {
+  font-weight: 900;
+}
+
 h1 {
   font-size: 36px;
 }
@@ -35,22 +48,67 @@ h2 {
   font-size: 24px;
 }
 
-.section-container,
-.title {
+p {
+  margin-bottom: 12px;
+}
+
+.container {
   max-width: 620px;
   margin: 0 auto;
+  padding: 40px 0;
 }
 
 .title {
-  padding: 60px 0;
+  padding: 20px 0;
 }
 
 .section-title {
   color: var(--orange);
+  margin-bottom: 15px;
 }
 
-.section-one {
-  background: var(--white);
+.section-img {
+  margin-bottom: 20px;
+}
+
+.section-two {
+  color: var(--white);
+  background: var(--dark-blue);
+}
+
+.link {
+  color: var(--orange);
+}
+
+.link:hover,
+.link:focus {
+  color: orange;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 900;
+  padding: 10px 26px;
+  margin-right: 12px;
+}
+
+.btn-accent {
+  color: var(--white);
+  background: var(--orange);
+}
+
+.btn-accent:hover,
+.btn-accent:focus {
+  background: rgb(255, 115, 0);
+}
+
+.btn-light {
   color: var(--dark-blue);
-  padding: 35px 0;
+  background: var(--white);
+}
+
+.btn-light:hover,
+.btn-light:focus {
+  background: rgb(205, 205, 205);
 }
