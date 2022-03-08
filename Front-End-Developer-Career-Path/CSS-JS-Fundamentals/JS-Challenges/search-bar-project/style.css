@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+
+label {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.container {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.search-bar {
+  background: orange;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  padding: 10px;
+}
+
+.search-bar input {
+  margin-left: 10px;
+}
+
+.user-list {
+  background: royalblue;
+  margin-bottom: 30px;
+}
+
+.user-list ul {
+  padding: 25px 0 5px 0;
+}
+
+.user-list ul li {
+  list-style: none;
+  background: whitesmoke;
+  padding: 10px;
+  text-align: center;
+  margin: 0 10px 10px 10px;
+}
