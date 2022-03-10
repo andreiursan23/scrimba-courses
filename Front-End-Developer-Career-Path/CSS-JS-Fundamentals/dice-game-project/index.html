@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roll the Dice</title>
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="./resources/css/index.css" />
+    <!-- JavaScript -->
+    <script src="./resources/script/index.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">Let's roll the dice! 🍀</h1>
+      <h2 class="game-msg" id="message">Player 1 Turn</h2>
+      <div class="play-board">
+        <div class="player-1">
+          <p class="scoreboard">Score: <span id="player-1-score">0</span></p>
+          <img
+            id="player-1-dice"
+            class="active"
+            src="./resources/images/start.png"
+            alt="dynamic image"
+            height="120px"
+            width="120px"
+          />
+        </div>
+        <div class="player-2">
+          <p class="scoreboard">Score: <span id="player-2-score">0</span></p>
+          <img
+            id="player-2-dice"
+            src="./resources/images/start.png"
+            alt="dynamic image"
+            height="120px"
+            width="120px"
+          />
+        </div>
+      </div>
+
+      <button id="rollBtn">Roll Dice 🎲</button>
+      <button id="resetBtn">Reset Game 🔁</button>
+    </div>
+  </body>
+</html>
