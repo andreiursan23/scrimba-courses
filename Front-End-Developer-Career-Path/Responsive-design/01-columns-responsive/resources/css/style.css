@@ -1,0 +1,72 @@
+:root {
+  --brown: #312614;
+  --pale-brown: #b7832f;
+  --gray: #707070;
+  --white: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.125rem;
+  color: var(--gray);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  font-size: 3rem;
+  color: var(--brown);
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+img {
+  max-width: 100%;
+  /* If my container is bigger than my maximum image size, if we have only "width: 100%", then my picture will stretch beyond its maximum original resolution, making the image look bad quality */
+}
+
+p {
+  margin-top: 0;
+}
+
+/* Layout */
+.container {
+  width: 90%;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.columns {
+  display: flex;
+  margin: 1em 0;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Helper classes */
+.text-accent {
+  color: var(--pale-brown);
+}
+
+.col-bg-dark {
+  color: var(--white);
+  background: var(--brown);
+  padding: 1em;
+}
+
+.col-w25 {
+  width: 20%;
+}
+
+.col-w50 {
+  width: 45%;
+}
+
+.col-w75 {
+  width: 70%;
+}
