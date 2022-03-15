@@ -48,6 +48,12 @@ p {
   align-items: flex-start;
 }
 
+@media (max-width: 700px) {
+  .columns {
+    flex-direction: column;
+  }
+}
+
 /* Helper classes */
 .text-accent {
   color: var(--pale-brown);
@@ -69,4 +75,12 @@ p {
 
 .col-w75 {
   width: 70%;
+}
+
+@media (max-width: 700px) {
+  .col-w25,
+  .col-w50,
+  .col-w75 {
+    width: 100%;
+  }
 }
