@@ -10,8 +10,8 @@
   --dark-orange: #df4e13;
   --orange: #ff713b;
   --light-orange: #ff895d;
-  --yellow-orange: #ffa51d;
   --dark-yellow-orange: #f18119;
+  --yellow-orange: #ffa51d;
 }
 
 /* === Globals === */
@@ -20,8 +20,10 @@
 }
 
 .container {
-  max-width: 90%;
+  max-width: 30rem;
+  width: 90%;
   margin: 0 auto;
+  position: relative;
 }
 
 /* === Typography === */
@@ -33,7 +35,7 @@ body {
   font-size: 1rem;
 }
 
-@media (min-width: 750px) {
+@media (min-width: 550px) {
   body {
     font-size: 1.125rem;
   }
@@ -53,11 +55,10 @@ strong,
 
 h1 {
   font-size: 2.25rem;
-  /* padding-bottom: 2em; */
   line-height: 1;
 }
 
-@media (min-width: 750px) {
+@media (min-width: 550px) {
   h1 {
     font-size: 3.5rem;
     padding-bottom: 0.1em;
@@ -69,7 +70,7 @@ h2,
   font-size: 1.3125rem;
 }
 
-@media (min-width: 750px) {
+@media (min-width: 550px) {
   h2,
   .header-subtitle {
     font-size: 1.75rem;
@@ -77,6 +78,7 @@ h2,
 }
 
 .header-subtitle {
+  width: 100%;
   padding-bottom: 1.5em;
   color: var(--dark-yellow-orange);
   position: absolute;
@@ -85,7 +87,7 @@ h2,
   transform: translateX(50%);
 }
 
-@media (min-width: 750px) {
+@media (min-width: 550px) {
   .header-subtitle {
     position: relative;
   }
@@ -135,6 +137,8 @@ h2,
 /* Header */
 
 header {
+  background-color: var(--dark-gray);
+  /* E util sa avem si background-color sub un background image, in cazul in care nu se incarca imaginea de fundal si avem text alb, care nu s-ar mai vedea */
   background-image: url("../images/dark-ribs.jpg");
   background-repeat: no-repeat;
   background-position: center;
@@ -151,7 +155,7 @@ header .container {
   justify-content: center;
 }
 
-@media (min-width: 750px) {
+@media (min-width: 550px) {
   header {
     margin-bottom: 0;
   }
@@ -181,6 +185,7 @@ header .container {
 }
 
 /* Main */
+
 .main-body {
   margin-bottom: 0.5em;
 }
@@ -213,14 +218,24 @@ header .container {
   background: transparent
     linear-gradient(270deg, #ff895d 0%, #df4e13 0%, #ffa51d 100%) 0% 0%
     no-repeat padding-box;
+  transition: transform ease-in-out 0.3s;
+}
+
+.register-btn:hover,
+.register-btn:focus {
+  cursor: pointer;
+  transform: scale(1.03);
+  transition: transform ease-in-out 0.3s;
 }
 
 .form-footer {
-  max-width: 9rem;
+  max-width: 11rem;
   margin: 0 auto;
+  /* Letter spacing e util si pentru text foarte mic */
+  letter-spacing: 1px;
 }
 
-@media (min-width: 750px) {
+@media (min-width: 550px) {
   body {
     display: flex;
   }
