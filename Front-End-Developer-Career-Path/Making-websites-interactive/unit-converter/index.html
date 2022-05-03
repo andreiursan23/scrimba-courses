@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unit Converter</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Styles -->
+    <link rel="stylesheet" href="./resources/style.css" />
+    <!-- JavaScript -->
+    <script src="./resources/script.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <main class="box">
+        <div class="top">
+          <form id="unit-form">
+            <label for="unit-to-convert">Metric/Imperial unit conversion</label>
+            <input
+              type="number"
+              max="999"
+              size="3"
+              name="unit-to-convert"
+              id="unit-to-convert"
+              placeholder="0"
+            />
+          </form>
+        </div>
+
+        <div class="bottom">
+          <!-- Length -->
+          <div class="conversion-box">
+            <p>Length (Meter/Feet)</p>
+            <p>
+              <span class="input-unit">0</span> meters =
+              <span id="feet-length">0.000</span> feet |
+              <span class="input-unit">0</span> feet =
+              <span id="meters-length">0.000</span> meters
+            </p>
+          </div>
+          <!-- Volume -->
+          <div class="conversion-box">
+            <p>Volume (Liters/Gallons)</p>
+            <p>
+              <span class="input-unit">0</span> liters =
+              <span id="gallons-volume">0.000</span> gallons |
+              <span class="input-unit">0</span> gallons =
+              <span id="liters-volume">0.000</span> liters
+            </p>
+          </div>
+          <!-- Mass -->
+          <div class="conversion-box">
+            <p>Mass (Kilograms/Pounds)</p>
+            <p>
+              <span class="input-unit">0</span> kilos =
+              <span id="pounds-mass">0.000</span> pounds |
+              <span class="input-unit">0</span> pounds =
+              <span id="kilos-mass">0.000</span> kilos
+            </p>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

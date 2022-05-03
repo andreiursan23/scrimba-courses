@@ -117,6 +117,16 @@ h2,
   margin-bottom: 1.5em;
 }
 
+.register-btn {
+  color: var(--white);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  line-height: 1.4;
+  letter-spacing: 1.5px;
+}
+
 .form-footer {
   color: var(--very-light-gray);
   font-size: 0.625rem;
@@ -129,8 +139,7 @@ h2,
 header {
   background-color: var(--dark-gray);
   /* E util sa avem si background-color sub un background image, in cazul in care nu se incarca imaginea de fundal si avem text alb, care nu s-ar mai vedea */
-  background-image: url("../images/ribs.jpg");
-  background-blend-mode: multiply;
+  background-image: url("../images/dark-ribs.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -194,28 +203,13 @@ header .container {
   padding: 0.75em 0;
   text-align: center;
   margin-bottom: 0.875em;
-  transform: scale(1);
-  transition: transform .25s ease-in-out;
 }
 
 .register-form-input::placeholder {
   opacity: 0.5;
 }
 
-.register-form-input:focus {
-  transform: scale(1.05);
-}
-
 .register-btn {
-  display: inline-block;
-  color: var(--white);
-  cursor: pointer;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-weight: bold;
-  font-size: 0.625rem;
-  text-transform: uppercase;
-  line-height: 1.4;
-  letter-spacing: 1.5px;
   width: 100%;
   border: none;
   border-radius: 7px;
@@ -224,13 +218,14 @@ header .container {
   background: transparent
     linear-gradient(270deg, #ff895d 0%, #df4e13 0%, #ffa51d 100%) 0% 0%
     no-repeat padding-box;
-  transform: scale(1);
-  transition: transform .25s ease-in-out;
+  transition: transform ease-in-out 0.3s;
 }
 
 .register-btn:hover,
 .register-btn:focus {
-  transform: scale(1.05);
+  cursor: pointer;
+  transform: scale(1.03);
+  transition: transform ease-in-out 0.3s;
 }
 
 .form-footer {

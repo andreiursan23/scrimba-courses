@@ -1,0 +1,110 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  border: 0;
+}
+
+.container {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  background-color: #1c1c1c;
+  color: #ffffff;
+  min-height: 100vh;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container .box {
+  min-width: 550px;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+
+.container .box .top {
+  background: linear-gradient(246.26deg, #2b75ec 0%, #2ec4de 100%);
+}
+
+.container .box .top form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 53px 0 13px 0;
+}
+
+.container .box .top form label {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 38px;
+  letter-spacing: 1px;
+}
+
+.container .box .top form input {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  font-size: 97px;
+  font-weight: 800;
+  text-align: center;
+  max-width: 211px;
+  margin: 0 auto;
+  color: #ffffff;
+  cursor: pointer;
+  caret-color: #2ec4de;
+  -moz-appearance: textfield;
+}
+
+.container .box .top form input::-webkit-inner-spin-button, .container .box .top form input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.container .box .top form input::-webkit-input-placeholder {
+  color: #ffffff;
+}
+
+.container .box .top form input:-ms-input-placeholder {
+  color: #ffffff;
+}
+
+.container .box .top form input::-ms-input-placeholder {
+  color: #ffffff;
+}
+
+.container .box .top form input::placeholder {
+  color: #ffffff;
+}
+
+.container .box .top form input:focus {
+  outline: none;
+  -moz-appearance: textfield;
+}
+
+.container .box .bottom {
+  background-color: #1f2937;
+  padding: 38px 0;
+}
+
+.container .box .bottom p:nth-of-type(1) {
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.container .box .bottom p:nth-of-type(2) {
+  margin-bottom: 27px;
+  color: #d2d2d2;
+}
+/*# sourceMappingURL=style.css.map */
